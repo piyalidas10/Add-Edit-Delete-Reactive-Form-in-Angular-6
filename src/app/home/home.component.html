@@ -1,1 +1,73 @@
+<div class="container">
+
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3 col-xs-12 userForm">
+        <h3 class="text-center">User Registration</h3>
+            <form [formGroup]="userForm" novalidate>
+                <div class="col-xs-12">
+                    <div class="form-group clearfix">
+                        <label>Name</label>
+                        <input type="text" class="form-control" formControlName="uname" name="uname" />
+                        <div class="error" *ngIf="userForm.controls['uname'].errors">
+                            <div *ngIf="userForm.controls['uname'].errors.minlength">Name must be at least 6 characters</div>
+                            <div *ngIf="userForm.controls['uname'].errors.maxlength">Name must be at most 20 characters</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group clearfix">
+                        <label>Email</label>
+                        <input type="text" class="form-control" formControlName="uemail" name="uemail" />
+                        <div class="error" *ngIf="userForm.controls['uemail'].errors">
+                                <div *ngIf="userForm.controls['uemail'].errors.minlength">Email must be at least 20 characters</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group clearfix">
+                        <label>Mobile No</label>
+                        <input type="text" class="form-control" formControlName="umobile" name="umobile" />
+                        <div class="error" *ngIf="userForm.controls['umobile'].errors">
+                                <div *ngIf="userForm.controls['umobile'].errors.minlength">Mobile must be at least 10 characters</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                    <div class="form-group">
+                        <button *ngIf="save" [disabled]="userForm.invalid" class="btn btn-primary btn-block" (click)="saveUser(userid)">Save</button>
+                        <button *ngIf="!save" type="submit" [disabled]="userForm.invalid" class="btn btn-primary btn-block" (click)="addUser()">Submit</button>
+                    </div>
+                </div>            
+            </form>
+            <div class="col-xs-12">
+                <div class="form-group">
+                </div>
+            </div>        
+    </div>        
+
+    <table class="table table-bordered" *ngIf="!users.length == 0">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile No</th>
+                <th>Action</th>
+            </tr>            
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.uid}}</td>
+                <td>{{user.uname}}</td>
+                <td>{{user.uemail}}</td>
+                <td>{{user.umobile}}</td>
+                <td>
+                    <button type="button" class="btn btn-success btn-sm" (click)="editUser(user.uid)">Edit</button>
+                    <button type="button" class="btn btn-danger btn-sm" (click)="deleteUser(user.uid)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+
+</div>
 

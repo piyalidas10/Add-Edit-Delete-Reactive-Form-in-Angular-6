@@ -1,0 +1,25 @@
+.userForm{
+    background: #F0F0F0;
+    margin-top:20px;
+    margin-bottom: 20px;
+    padding-top:20px;
+    padding-bottom:20px;
+    border: #cccccc 1px solid;
+}
+.userForm .form-control{
+    border-radius: 0;
+}
+.userForm .error{
+    color: firebrick;
+}
+.userForm .btn-primary{
+    background: #4c79ff;
+    color: #ffffff;
+    text-transform: uppercase;
+}
+.table tr td .btn{
+    margin-right: 10px;
+}
+.table tr td .btn:last-child{
+    margin-right: 0;
+}
