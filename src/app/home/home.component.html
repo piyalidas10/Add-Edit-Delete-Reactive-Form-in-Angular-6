@@ -18,7 +18,7 @@
                         <label>Email</label>
                         <input type="text" class="form-control" formControlName="uemail" name="uemail" />
                         <div class="error" *ngIf="userForm.controls['uemail'].errors">
-                                <div *ngIf="userForm.controls['uemail'].errors.minlength">Email must be at least 20 characters</div>
+                                <div *ngIf="userForm.controls['uemail'].errors.maxlength">Email must be at most 20 characters</div>
                         </div>
                     </div>
                 </div>
